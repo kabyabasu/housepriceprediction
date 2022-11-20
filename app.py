@@ -6,8 +6,8 @@ import numpy as np
 import pandas as pd
 
 app = Flask(__name__)
-regModel = pickle.load("regression.pkl","rb")
-scaler = pickle.load("scaler.pkl","rb")
+regModel = pickle.load(open('regression.pkl','rb'))
+scaler = pickle.load(open('scaler.pkl','rb'))
 
 
 @app.route('/')
