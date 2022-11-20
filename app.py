@@ -31,7 +31,8 @@ def predict_api():
 
 @app.route('/predict',methods=['POST'])
 def predict():
-    data = map(lambda n: n.astype(float), list(request.form.values()))
+
+    data=np.array([float(i) for i in request.form.values()]).reshape(1,-1)
     print(data)
     new_data = scalar.transform(data)
     output = regModel.predict(new_data)[0]
