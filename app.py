@@ -14,7 +14,7 @@ scaler = pickle.load(open('scaler.pkl','rb'))
 def home():
     return render_template('home.html')
 
-@app.route('/predict_api',method=['post'])
+@app.route('/predict_api',methods=['POST'])
 def predict_api():
     data = request.json['data']
     data_trasform= scaler.tranform(np.array(list(data.values())).reshape(1,-1))
