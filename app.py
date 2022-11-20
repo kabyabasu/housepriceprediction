@@ -22,6 +22,10 @@ def predict_api():
     return jsonify(output[0])
 
 
+if __name__ == "__main__":
+    app.run(debug=True)
+
+
 
 
 
