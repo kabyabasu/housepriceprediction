@@ -7,7 +7,7 @@ import pandas as pd
 
 app = Flask(__name__)
 regModel = pickle.load(open('regression.pkl','rb'))
-scaler = pickle.load(open('scaler.pkl','rb'))
+scalar = pickle.load(open('scaler.pkl','rb'))
 
 
 @app.route('/')
@@ -25,7 +25,7 @@ def predict_api():
     print(data)
     print(np.array(list(data.values())).reshape(1,-1))
     new_data=scalar.transform(np.array(list(data.values())).reshape(1,-1))
-    output=regmodel.predict(new_data)
+    output=regModel.predict(new_data)
     print(output[0])
     return jsonify(output[0])
 
